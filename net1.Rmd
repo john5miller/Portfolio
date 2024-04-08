@@ -1,0 +1,33 @@
+---
+title: "Network 1"
+author: "John Miller"
+date: "4/8/2024"
+output: 
+  html_document
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Libraries
+
+```{r}
+library(igraph)
+```
+
+
+```{r}
+df <- read.table("/Users/johnmiller/Downloads/higgs-social_network.edgelist.gz")
+
+g <- graph_from_data_frame(df,directed = T, vertices = NULL)
+tiny_g <- induced_subgraph(g,1:10)
+
+```
+
+```{r}
+plot(tiny_g)
+```
+
+
